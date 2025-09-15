@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Energy Grid Dark Theme */
+    --background: 220 30% 5%;
+    --foreground: 180 100% 95%;
+
+    --card: 220 25% 8%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 180 100% 95%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 5%;
+
+    --secondary: 160 100% 40%;
+    --secondary-foreground: 220 30% 5%;
+
+    --muted: 220 25% 12%;
+    --muted-foreground: 180 50% 70%;
+
+    --accent: 195 100% 60%;
+    --accent-foreground: 220 30% 5%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 180 100% 95%;
+
+    --border: 220 25% 15%;
+    --input: 220 25% 12%;
+    --ring: 195 100% 50%;
+
+    /* Energy-specific colors */
+    --energy-primary: 195 100% 50%;
+    --energy-secondary: 160 100% 40%;
+    --energy-warning: 45 100% 60%;
+    --energy-grid: 220 25% 20%;
+    --energy-node: 195 100% 70%;
+    --energy-flow: 160 100% 60%;
+    
+    /* Gradients */
+    --gradient-energy: linear-gradient(135deg, hsl(195 100% 50%), hsl(160 100% 40%));
+    --gradient-grid: linear-gradient(180deg, hsl(220 30% 5%), hsl(220 25% 8%));
+    --gradient-node: radial-gradient(circle, hsl(195 100% 60% / 0.3), transparent);
+    
+    /* Shadows & Effects */
+    --glow-energy: 0 0 20px hsl(195 100% 50% / 0.5);
+    --glow-secondary: 0 0 15px hsl(160 100% 40% / 0.4);
+    --shadow-grid: 0 4px 20px hsl(220 30% 5% / 0.6);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Same as root since we're energy-focused dark theme */
+    --background: 220 30% 5%;
+    --foreground: 180 100% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(195 100% 50% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(160 100% 40% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(195 100% 50% / 0.03) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .energy-grid {
+    background-image: 
+      linear-gradient(hsl(var(--energy-grid)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--energy-grid)) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .encrypted-blur {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+  }
+  
+  .encrypted-blur:hover {
+    filter: blur(0px);
+  }
+  
+  .energy-pulse {
+    animation: energy-pulse 2s ease-in-out infinite;
+  }
+  
+  .energy-flow {
+    animation: energy-flow 3s linear infinite;
+  }
+  
+  @keyframes energy-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 5px hsl(var(--energy-primary) / 0.5);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 20px hsl(var(--energy-primary) / 0.8);
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes energy-flow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
