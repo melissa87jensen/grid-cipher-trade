@@ -1,6 +1,5 @@
 import { Shield, Zap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export const Header = () => {
   return (
@@ -30,7 +29,6 @@ export const Header = () => {
               Live Grid
             </Badge>
             <div className="w-2 h-2 rounded-full bg-energy-secondary animate-pulse" />
-            <ConnectButton />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Header } from '@/components/Header';
 import { PowerGrid } from '@/components/PowerGrid';
 import { TradingPanel } from '@/components/TradingPanel';
-import { WalletConnect } from '@/components/WalletConnect';
+import { WalletInfo } from '@/components/WalletInfo';
 
 const Index = () => {
   return (
@@ -9,9 +9,9 @@ const Index = () => {
       <Header />
       
       <main className="container mx-auto px-6 py-8 space-y-8">
-        {/* Wallet Connection */}
+        {/* Wallet Information */}
         <div className="max-w-md mx-auto">
-          <WalletConnect />
+          <WalletInfo />
         </div>
         
         {/* Main Grid */}
